@@ -1,6 +1,4 @@
 Dealer::Application.routes.draw do
-  resources :redeems
-
   resources :deals do
     #get 'current', :on => :member     will give something like this /deals/1/current
     #get 'current', :on => :collection will give something like this /deals/current
