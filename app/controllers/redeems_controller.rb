@@ -37,12 +37,14 @@ class RedeemsController < ApplicationController
   # POST /redeems
   # POST /redeems.xml
   def create
-    @redeem = Redeem.new(params[:redeem])
-    @deal = Deal.find(params[:redeem][:deal_id])
+    #params[:deal_id] is placed in the url of POST action see routes.rb why
+    @redeem = Redeem.new(params[:redeem].merge(:deal_id => params[:deal_id]))
+    #alternatively by using association's build method deal_id will be assigned automatically
+    #@redeem = Deal.find(params[:deal_id]).redeem.build(params[:redeem])
     
     if @redeem.save
-      if @deal.decrement_price()
-        redirect_to(@redeem, :notice => 'You got it!.')
+      if @redeem.deal.decrement_price
+        redirect_to(@redeem, :notice => 'You got it!')
       end
     else
       render :action => "new"

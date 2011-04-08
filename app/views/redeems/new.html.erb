@@ -1,5 +1,5 @@
 <h1>Get your deal!</h1>
-<%= form_for(@redeem) do |f| %>
+<%= form_for([:deal, @redeem]) do |f| %>
   <% if @redeem.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@redeem.errors.count, "error") %> prohibited this redeem from being saved:</h2>
@@ -12,9 +12,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.hidden_field :deal_id %>
-  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>

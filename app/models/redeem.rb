@@ -1,4 +1,5 @@
 class Redeem < ActiveRecord::Base
+  belongs_to :deal
   
   before_validation :create_promocode
   

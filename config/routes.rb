@@ -5,11 +5,9 @@ Dealer::Application.routes.draw do
     #get 'current', :on => :member     will give something like this /deals/1/current
     #get 'current', :on => :collection will give something like this /deals/current
     get 'current', :on => :collection
+    resources :redeems 
   end
 
-  
-  get '/getit/:id' => 'redeems#new'
-  
   root :to => "deals#current"
   
     # The priority is based upon order of creation:
