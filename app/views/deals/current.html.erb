@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @deal.name %>
-</p>
+<% if @deal %>
+  <p>
+    <b>Name:</b>
+    <%= @deal.name %>
+  </p>
 
-<p>
-  <b>Price:</b>
-  <%= @deal.price.round 2 %>
-</p>
+  <p>
+    <b>Price:</b>
+    <%= @deal.price.round 2 %>
+  </p>
 
-<p>
-  <%= link_to 'Take it!', 'getit/'+@deal.id.to_s %>
-</p>
+  <p>
+    <%= link_to 'Take it!', 'getit/'+@deal.id.to_s %>
+  </p>
 
 
-<%= link_to 'Edit', new_deal_path(@deal) %> |
+  <%= link_to 'Edit', new_deal_path(@deal) %> |
+<% end %>
+
 <%= link_to 'Show me more!', deals_path %>
