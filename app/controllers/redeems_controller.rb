@@ -76,9 +76,4 @@ class RedeemsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  def self.promogen(email)
-    Digest::SHA1.hexdigest Time.now.to_s+email
-  end
-  
 end
