@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Deal:</b>
+  <%= @redeem.deal_id %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @redeem.email %>
+</p>
+
+<p>
+  <b>Current price:</b>
+  <%= @deal.price.round 2 %>
+</p>
+
+<p>
+  <b>Promocode:</b>
+  <%= @redeem.promocode %>
+</p>
+
+<%= link_to 'More!', deals_path %>
